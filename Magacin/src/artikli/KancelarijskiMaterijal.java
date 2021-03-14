@@ -2,33 +2,34 @@ package artikli;
 
 public class KancelarijskiMaterijal extends Artikal {
 
-	public String naziv;
-	public int sifra;
-	public String opis;
-	public int kolicina;
+	private String naziv;
+	private int sifra;
+	private String opis;
+	private int kolicina;
+	
 	public String getNaziv() {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
-		this.naziv = naziv;
+		if(naziv!=null)this.naziv = naziv;
 	}
 	public int getSifra() {
 		return sifra;
 	}
 	public void setSifra(int sifra) {
-		this.sifra = sifra;
+		if(sifra!=0)this.sifra = sifra;
 	}
 	public String getOpis() {
 		return opis;
 	}
 	public void setOpis(String opis) {
-		this.opis = opis;
+		if(opis!=null)this.opis = opis;
 	}
 	public int getKolicina() {
 		return kolicina;
 	}
 	public void setKolicina(int kolicina) {
-		this.kolicina = kolicina;
+		if(kolicina!=0)this.kolicina = kolicina;
 	}
 	@Override
 	public int hashCode() {
