@@ -2,6 +2,7 @@ package artikli;
 
 import java.util.LinkedList;
 
+
 public class Artikal {
 
 	private String naziv;
@@ -10,8 +11,7 @@ public class Artikal {
 	private int kolicina;
 	private LinkedList<Artikal> listaArtikal = new LinkedList<>();
 	
-	
-	
+
 	public LinkedList<Artikal> getListaArtikal() {
 		return listaArtikal;
 	}
