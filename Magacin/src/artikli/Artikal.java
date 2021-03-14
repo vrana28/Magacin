@@ -1,12 +1,23 @@
 package artikli;
 
+import java.util.LinkedList;
+
+
 public class Artikal {
 
 	private String naziv;
 	private int sifra;
 	private String opis;
 	private int kolicina;
+	private LinkedList<Artikal> listaArtikal = new LinkedList<>();
 	
+	
+	public LinkedList<Artikal> getListaArtikal() {
+		return listaArtikal;
+	}
+	public void setListaArtikal(LinkedList<Artikal> listaArtikal) {
+		this.listaArtikal = listaArtikal;
+	}
 	public String getNaziv() {
 		return naziv;
 	}

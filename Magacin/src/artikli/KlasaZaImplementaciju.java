@@ -1,25 +1,52 @@
 package artikli;
 
+import java.util.LinkedList;
+
 import artikli.interfejs.MagacinInterfejs;
 
 public class KlasaZaImplementaciju implements MagacinInterfejs {
 
+
 	@Override
-	public void dodajArtikal() {
-		// TODO Auto-generated method stub
+	public void dodajArtikal(Artikal a, Artikal magacin) {
+		if(a==null) throw new RuntimeException("Null");
+		LinkedList<Artikal> lista = magacin.getListaArtikal();
+		if(lista.contains(a)) {
+			for (Artikal artikal : lista) {
+				if(a.getClass().equals(artikal.getClass())) artikal.setKolicina(artikal.getKolicina()+1);
+			}
+		}else {
+			lista.add(a);
+		}
+		magacin.setListaArtikal(lista);
+	}
+
+	@Override
+	public void izbaciArtikal(Artikal a, Artikal magacin) {
+		if(a==null) throw new RuntimeException("Null");
+		LinkedList<Artikal> lista = magacin.getListaArtikal();
+		if(lista.contains(a)) {
+			for (Artikal artikal : lista) {
+				if(a.getClass().equals(artikal.getClass())) artikal.setKolicina(artikal.getKolicina()-1);
+			}
+		}else {
+			throw new RuntimeException("Artikal ne postoji u magacinu");
+		}
+		magacin.setListaArtikal(lista);
 		
 	}
 
 	@Override
-	public void izbaciArtikal() {
-		// TODO Auto-generated method stub
-		
+	public String vratiInfo(int sifraArtikla, Artikal magacin) {
+		LinkedList<Artikal> lista = magacin.getListaArtikal();
+		if(lista.get(sifraArtikla)!=null) {
+			Artikal a = lista.get(sifraArtikla);
+			return a.toString();
+		}else{
+			return "Ne postoji dati artikal, sa tim indeksom.";
+		}
 	}
-
-	@Override
-	public Artikal vratiInfo(int sifraArtikla) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 
 }
