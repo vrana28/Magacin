@@ -1,6 +1,6 @@
 package artikli;
 
-public class KancelarijskiMaterijal extends Artikal {
+public class Artikal {
 
 	public String naziv;
 	public int sifra;
@@ -33,7 +33,7 @@ public class KancelarijskiMaterijal extends Artikal {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result + kolicina;
 		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
 		result = prime * result + ((opis == null) ? 0 : opis.hashCode());
@@ -44,11 +44,11 @@ public class KancelarijskiMaterijal extends Artikal {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		KancelarijskiMaterijal other = (KancelarijskiMaterijal) obj;
+		Artikal other = (Artikal) obj;
 		if (kolicina != other.kolicina)
 			return false;
 		if (naziv == null) {
@@ -67,9 +67,9 @@ public class KancelarijskiMaterijal extends Artikal {
 	}
 	@Override
 	public String toString() {
-		return "KancelarijskiMaterijal [naziv=" + naziv + ", sifra=" + sifra + ", opis=" + opis + ", kolicina="
-				+ kolicina + "]";
+		return "Artikal [naziv=" + naziv + ", sifra=" + sifra + ", opis=" + opis + ", kolicina=" + kolicina + "]";
 	}
+	
 	
 	
 }

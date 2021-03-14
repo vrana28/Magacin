@@ -1,6 +1,6 @@
 package artikli;
 
-public class Knjiga {
+public class Knjiga extends Artikal{
 
 	public String naziv;
 	public int sifra;
@@ -33,7 +33,7 @@ public class Knjiga {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + kolicina;
 		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
 		result = prime * result + ((opis == null) ? 0 : opis.hashCode());
@@ -44,7 +44,7 @@ public class Knjiga {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -69,6 +69,8 @@ public class Knjiga {
 	public String toString() {
 		return "Knjiga [naziv=" + naziv + ", sifra=" + sifra + ", opis=" + opis + ", kolicina=" + kolicina + "]";
 	}
+	
+	
 	
 	
 	
